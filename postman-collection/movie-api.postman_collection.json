@@ -1,0 +1,53 @@
+{
+	"variables": [],
+	"info": {
+		"name": "movie-api",
+		"_postman_id": "d2bb2670-ceda-2ee6-2290-bcf134fcc594",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "[movie-api] delete",
+			"request": {
+				"url": "{{servidor}}:{{porta}}/delete/{{id}}",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "[movie-api] add movie"
+			},
+			"response": []
+		},
+		{
+			"name": "[movie-api] add movie",
+			"request": {
+				"url": "{{servidor}}:{{porta}}/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"title\": \"Matrix Reloaded 5 \",\n    \"releaseDate\" : \"2004-07-23\",\n    \"originalTitle\" : \"Matrix Reloaded 5\",\n    \"synopsis\" : \"Neo and his allies race against time before the machines discover the city of Zion and destroy it. While seeking the truth about the Matrix, Neo must save Trinity from a dark fate within his dreams.\"\n}"
+				},
+				"description": "[movie-api] add movie"
+			},
+			"response": []
+		},
+		{
+			"name": "[movie-api] /all/recently",
+			"request": {
+				"url": "{{servidor}}:{{porta}}/all/recently",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "[movie-api] /all/recently"
+			},
+			"response": []
+		}
+	]
+}
