@@ -21,8 +21,8 @@ docker-compose up --build -d
 Após executar o build da aplicação:
 - Abra as collections no postman e execute as chamadas disponíveis
 Os serviços estarão disponíveis:
-- localhost:8080/filmeflix/movie/all
-- localhost:8080/filmeflix/movie/all/recently
-- localhost:8080/filmeflix/movie/add
-- localhost:8080/filmeflix/movie/all
+- [GET] http://localhost:8080/filmeflix/movie/
+- [GET] http://localhost:8080/filmeflix/movie/recently
+- [POST] http://localhost:8080/filmeflix/movie/
+- [DELETE] http://localhost:8080/filmeflix/movie/
 
