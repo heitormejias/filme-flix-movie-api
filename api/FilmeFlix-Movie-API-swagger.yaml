@@ -1,0 +1,112 @@
+---
+swagger: "2.0"
+info:
+  description: FilmeFlix Movie API.
+  version: "1.0"
+  title: FilmeFlix Movie API
+host: localhost:8080
+basePath: /filmeflix
+schemes:
+- http
+consumes:
+- application/json
+- application/json; charset utf-8
+produces:
+- application/json
+- application/json; charset utf-8
+paths:
+  /movie/all:
+    get:
+      tags:
+      - movie-api-controller
+      summary: Lista os filmes adicionados
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Sucesso
+          schema:
+            $ref: '#/definitions/Movie'
+  /movie/all/recently:
+    get:
+      tags:
+      - movie-api-controller
+      summary: Lista os filmes adicionados recentemente
+      produces:
+      - application/json
+      parameters: []
+      responses:
+        "200":
+          description: Sucesso
+          schema:
+            $ref: '#/definitions/Movie'
+  /movie/delete/{id}:
+    delete:
+      tags:
+      - movie-api-controller
+      summary: Exclui o filme que contém o id informado
+      consumes:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        description: id do filme
+        required: true
+        type: integer
+      responses:
+        "202":
+          description: Accepted. Sucesso
+        "404":
+          description: Not Found
+  /movie/add:
+    post:
+      tags:
+      - movie-api-controller
+      summary: Adiciona um filme
+      consumes:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        required: false
+        schema:
+          $ref: '#/definitions/Movie'
+        x-examples: {}
+      responses:
+        "201":
+          description: Created. Sucesso
+          schema:
+            type: string
+        "400":
+          description: Bad request. Verifique os parâmetros enviados.
+definitions:
+  Movie:
+    type: object
+    required:
+    - originalTitle
+    - releaseDate
+    - synopsis
+    - title
+    properties:
+      title:
+        type: string
+        example: Vingadores Ultimato
+        description: Título do filme
+      releaseDate:
+        type: string
+        format: date
+        example: 2019-04-25T00:00:00.000Z
+        description: Data de Lançamento do Filme
+      originalTitle:
+        type: string
+        example: Avengers Ultimato
+        description: Título original do filme
+      synopsis:
+        type: string
+        example: Após Thanos eliminar metade das criaturas vivas, os Vingadores têm de lidar com a perda de amigos e entes queridos. Com Tony Stark vagando perdido no espaço sem água e comida, Steve Rogers e Natasha Romanov lideram a resistência contra o titã louco.
+        description: Sinopse do filme
+      creationDate:
+        type: string
+        format: datetime
+        description: Data de Criação do objeto
