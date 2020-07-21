@@ -17,23 +17,23 @@ public class MovieController {
     @Autowired
     private MovieRepository repository;
 
-    @GetMapping("/movie/all")
+    @GetMapping("/movie/")
     public List<Movie> getAllMovies() {
         return repository.findAll();
     }
 
-    @GetMapping("/movie/all/recently")
+    @GetMapping("/movie/recently")
     public List<Movie> getAllMoviesRecentlyAdded() {
         return repository.findAll(Sort.by(Sort.Direction.DESC, "creationDate"));
     }
 
-    @PostMapping("/movie/add")
+    @PostMapping("/movie/")
     @ResponseStatus(HttpStatus.CREATED)
     public void addMovie(@RequestBody Movie movie) {
         repository.save(movie);
     }
 
-    @DeleteMapping("/movie/delete/{id}")
+    @DeleteMapping("/movie/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void deleteMovie(@PathVariable Long id) {
         Optional<Movie> movieToExclude = repository.findById(id);
