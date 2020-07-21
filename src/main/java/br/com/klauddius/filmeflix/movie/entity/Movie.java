@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -25,4 +26,6 @@ public class Movie {
     public String originalTitle;
 
     public String synopsis;
+
+    public LocalDateTime creationDate = LocalDateTime.now();
 }

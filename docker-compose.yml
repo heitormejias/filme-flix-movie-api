@@ -1,0 +1,32 @@
+version: '3'
+services:
+  docker-mysql-filmeflix:
+    restart: always
+    container_name: docker-mysql-filmeflix
+    image: mysql
+    environment:
+      MYSQL_DATABASE: filme-flix
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+
+    ports:
+      - "6034:3306"
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=root--execute \"SHOW DATABASES;\""
+      interval: 2s
+      timeout: 20s
+      retries: 10
+
+  filme-flix-api:
+    restart: on-failure
+    build: ./
+    expose:
+      - "8080"
+    ports:
+      - 8080:8080
+    environment:
+      WAIT_HOSTS: mysql:3306
+    depends_on:
+      - docker-mysql-filmeflix
