@@ -8,9 +8,9 @@
 	},
 	"item": [
 		{
-			"name": "[movie-api] delete",
+			"name": "Exclui filme",
 			"request": {
-				"url": "{{servidor}}:{{porta}}/{{context-root}}/{{resource}}/delete/{{id}}",
+				"url": "{{servidor}}:{{porta}}/filmeflix/movie/{{id}}",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
@@ -19,9 +19,9 @@
 			"response": []
 		},
 		{
-			"name": "[movie-api] add movie",
+			"name": "Adiciona filme",
 			"request": {
-				"url": "{{servidor}}:{{porta}}/{{context-root}}/{{resource}}/add",
+				"url": "{{servidor}}:{{porta}}/filmeflix/movie/",
 				"method": "POST",
 				"header": [
 					{
@@ -39,24 +39,24 @@
 			"response": []
 		},
 		{
-			"name": "[movie-api] /all/recently",
+			"name": "Lista todos os filmes",
 			"request": {
-				"url": "{{servidor}}:{{porta}}/{{context-root}}/{{resource}}/all/recently",
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"description": "Lista todos os filmes adicionados recentemente"
-			},
-			"response": []
-		},
-		{
-			"name": "[movie-api] /all/",
-			"request": {
-				"url": "{{servidor}}:{{porta}}/{{context-root}}/{{resource}}/all/recently",
+				"url": "{{servidor}}:{{porta}}/filmeflix/movie/",
 				"method": "GET",
 				"header": [],
 				"body": {},
 				"description": "Lista todos os filmes"
+			},
+			"response": []
+		},
+		{
+			"name": "Lista todos os filmes adicionados recentemente",
+			"request": {
+				"url": "{{servidor}}:{{porta}}/filmeflix/movie/recently",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Lista todos os filmes adicionados recentemente"
 			},
 			"response": []
 		}
