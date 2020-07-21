@@ -10,18 +10,18 @@
 		{
 			"name": "[movie-api] delete",
 			"request": {
-				"url": "{{servidor}}:{{porta}}/delete/{{id}}",
+				"url": "{{servidor}}:{{porta}}/{{context-root}}/{{resource}}/delete/{{id}}",
 				"method": "DELETE",
 				"header": [],
 				"body": {},
-				"description": "[movie-api] add movie"
+				"description": "Exclui um filme"
 			},
 			"response": []
 		},
 		{
 			"name": "[movie-api] add movie",
 			"request": {
-				"url": "{{servidor}}:{{porta}}/add",
+				"url": "{{servidor}}:{{porta}}/{{context-root}}/{{resource}}/add",
 				"method": "POST",
 				"header": [
 					{
@@ -32,20 +32,31 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \n\t\"title\": \"Matrix Reloaded 5 \",\n    \"releaseDate\" : \"2004-07-23\",\n    \"originalTitle\" : \"Matrix Reloaded 5\",\n    \"synopsis\" : \"Neo and his allies race against time before the machines discover the city of Zion and destroy it. While seeking the truth about the Matrix, Neo must save Trinity from a dark fate within his dreams.\"\n}"
+					"raw": "{ \n\t\"title\": \"Matrix Reloaded 5 \",\n    \"releaseDate\" : \"2004-07-27\",\n    \"originalTitle\" : \"Matrix Reloaded 5\",\n    \"synopsis\" : \"Neo and his allies race against time before the machines discover the city of Zion and destroy it. While seeking the truth about the Matrix, Neo must save Trinity from a dark fate within his dreams.\"\n}"
 				},
-				"description": "[movie-api] add movie"
+				"description": "Adiciona um filme"
 			},
 			"response": []
 		},
 		{
 			"name": "[movie-api] /all/recently",
 			"request": {
-				"url": "{{servidor}}:{{porta}}/all/recently",
+				"url": "{{servidor}}:{{porta}}/{{context-root}}/{{resource}}/all/recently",
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"description": "[movie-api] /all/recently"
+				"description": "Lista todos os filmes adicionados recentemente"
+			},
+			"response": []
+		},
+		{
+			"name": "[movie-api] /all/",
+			"request": {
+				"url": "{{servidor}}:{{porta}}/{{context-root}}/{{resource}}/all/recently",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Lista todos os filmes"
 			},
 			"response": []
 		}
