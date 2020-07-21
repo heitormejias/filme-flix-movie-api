@@ -20,6 +20,7 @@ docker-compose up --build -d
 # Rodando a solução:
 Após executar o build da aplicação:
 - Abra as collections no postman e execute as chamadas disponíveis
+
 Os serviços estarão disponíveis:
 - [GET] http://localhost:8080/filmeflix/movie/
 - [GET] http://localhost:8080/filmeflix/movie/recently
